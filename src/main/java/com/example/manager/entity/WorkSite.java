@@ -1,9 +1,6 @@
 package com.example.manager.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,7 +15,7 @@ import java.time.LocalDate;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@DynamicUpdate
+@Table(name = "worksite")
 public class WorkSite {
 
     @Id
@@ -30,5 +27,6 @@ public class WorkSite {
     private String projectName;
     private LocalDate startDate;
     private LocalDate endDate;
+    private String status;
 
 }

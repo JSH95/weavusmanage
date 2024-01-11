@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,6 @@ import java.util.List;
 public class User {
 
     @Id
-    @GeneratedValue
     private String id;
     private String password;
     private String name;
@@ -29,8 +29,8 @@ public class User {
     private LocalDate startDay;
     private String isActive;
 
-//    @OneToMany
-//    @JoinColumn(name = "WorkSite")
-//    private List<WorkSite> workSiteList = new ArrayList<>();
+    @OneToMany
+    @JoinColumn(name = "userId")
+    private List<WorkSite> workSiteList = new ArrayList<>();
 
 }

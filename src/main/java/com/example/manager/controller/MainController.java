@@ -26,7 +26,8 @@ public class MainController {
 
     @GetMapping("detail/{id}")
     public String detail(@PathVariable String id, Model model){
-        User user = userRepository.findById(id).orElse(null);
+       User user = userRepository.findById(id).orElse(null);
+
         model.addAttribute("user", user);
         return "detail";
     }
