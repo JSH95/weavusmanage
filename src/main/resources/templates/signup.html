@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>WEAVUS 회원가입</title>
+</head>
+<body>
+    <form class="container" action="/signup" method="post">
+        <div class="mb-3 row">
+            <label for="id" class="col-sm-2 col-form-label">ID</label>
+            <input type="text" class="form-control" name="id">
+        </div>
+        <div class="mb-3 row">
+            <label for="password1" class="col-sm-2 col-form-label">password1</label>
+            <input type="password" class="form-control" name="password1" id="password1">
+            <div id="passwordHelpBlock" class="form-text">
+                영문+숫자형태로 입력해 주세요
+            </div>
+            </div>
+        <div class="mb-3 row">
+            <label for="password2" class="col-sm-2 col-form-label">password2</label>
+            <input type="password" class="form-control" name="password2" id="password2">
+        </div>
+        <div class="mb-3 row">
+            <label for="address" class="col-sm-2 col-form-label">주소</label>
+            <input type="text" class="form-control" name="address">
+        </div>
+        <div class="mb-3 row">
+            <label for="email" class="col-sm-2 col-form-label">이메일</label>
+            <input type="email" class="form-control" name="email" th:value="email">
+            <button onclick="window.open('emailConfirm','이메일 체크', 'width=400,height=250')" class="btn btn-outline-primary">이메일 중복 검사</button>
+        </div>
+        <div class="mb-3 row">
+            <label for="phone" class="col-sm-2 col-form-label">휴대폰번호</label>
+            <input type="text" class="form-control" name="phone">
+        </div>
+        <div class="mb-3 row">
+            <label for="name" class="col-sm-2 col-form-label">이름</label>
+            <input type="text" class="form-control" name="name">
+        </div>
+        <div class="mb-3 row">
+            <label for="birth" class="col-sm-2 col-form-label">생년월일(yymmdd)</label>
+            <input type="text" class="form-control" name="birth">
+        </div>
+        <div class="mb-3 row">
+            <label for="createDay" class="col-sm-2 col-form-label">등록일</label>
+            <input type="date" class="form-control" name="createDay">
+        </div>
+        <div class="mb-3 row">
+            <label for="startDay" class="col-sm-2 col-form-label">입사일</label>
+            <input type="date" class="form-control" name="startDay">
+        </div>
+
+        <div class="d-grid gap-1 d-md-flex justify-content-md-end">
+
+        <button type="submit" class="btn btn-outline-primary">회원가입</button>
+            <a href="/login" class="btn btn-outline-primary" tabindex="-1" role="button" aria-disabled="false">로그인 화면으로</a>
+            <span th:text="${msg}"></span>
+        </div>
+    </form>
+</body>
+</html>

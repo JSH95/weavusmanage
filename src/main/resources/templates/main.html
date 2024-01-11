@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>WEVUS 사원관리</title>
+</head>
+<body>
+<span th:text="${session.sessionUserName}"></span>님 환영합니다.
+<table class="table table-hover table-border container">
+    <thead>
+    <tr>
+        <th scope="col">Nb</th>
+        <th scope="col">id</th>
+        <th scope="col">name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user, userStat : ${userList}">
+        <th th:text="${userStat.count}"></th>
+        <td>
+            <a th:href="@{/detail/{id}(id = ${user.id})}" th:text="${user.getId()}"></a>
+        </td>
+        <td th:text="${user.name}"></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

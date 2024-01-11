@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>WEVUS 사원상세정보</title>
+</head>
+<body>
+    <div class="container">
+        <form th:action="@{/modify}" method="post">
+            <label>ID</label>
+            <input class="form-control" type="text" th:value="${user.id}" disabled>
+            <input type="hidden" name="id" th:value="${user.id}">
+            <input type="hidden" id="password1" name="password1" th:value="${user.password}">
+            <input type="hidden" name="isActive" th:value="${user.isActive}">
+            <label>이름</label>
+            <input class="form-control" type="text" name="name" th:value="${user.name}">
+            <label>주소</label>
+            <input class="form-control" type="text" name="address" th:value="${user.address}">
+            <label>이메일</label>
+            <input class="form-control" type="email" name="email" th:value="${user.email}">
+            <label>휴대폰</label>
+            <input class="form-control" type="text" name="phone" th:value="${user.phone}">
+            <label>생년월일(yymmdd)</label>
+            <input class="form-control" type="text" name="birth" th:value="${user.birth}">
+            <label>등록일</label>
+            <input class="form-control" type="date" name="createDay" th:value="${user.createDay}">
+            <label>입사일</label>
+            <input class="form-control" type="date" name="startDay" th:value="${user.startDay}">
+            <button type="submit" class="btn">수정</button>
+        </form>
+        <a th:href="@{/detail/{id}(id=${user.id})}" class="btn btn-outline-primary" tabindex="-1" role="button" aria-disabled="false">뒤로가기</a>
+    </div>
+</body>
+</html>
